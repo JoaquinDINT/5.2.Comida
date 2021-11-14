@@ -83,6 +83,15 @@
                     Value="0,0,2,0"></Setter>
         </Style>
 
+        <Style TargetType="StackPanel" x:Key="formulario">
+            <Setter Property="IsEnabled" Value="True"></Setter>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Path=PlatoSeleccionado}" Value="{x:Null}">
+                    <Setter Property="IsEnabled" Value="False"></Setter>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+
         <DataTemplate DataType="{x:Type local:Plato}">
             <Border BorderThickness="1"
                     BorderBrush="Black"
@@ -159,13 +168,12 @@
                        Background="Gainsboro"
                        Margin="15,0,5,0"
                        Padding="10">
-                <StackPanel>
+                <StackPanel Style="{StaticResource formulario}">
 
                     <TextBlock>Nombre del plato</TextBlock>
                     <TextBox Text="{Binding Path=PlatoSeleccionado.Nombre, UpdateSourceTrigger=PropertyChanged}"></TextBox>
                     <TextBlock>Foto del plato</TextBlock>
-                    <TextBox Text="{Binding Path=PlatoSeleccionado.Imagen, UpdateSourceTrigger=PropertyChanged}"
-                             TextWrapping="Wrap"></TextBox>
+                    <TextBox Text="{Binding Path=PlatoSeleccionado.Imagen, UpdateSourceTrigger=PropertyChanged}"></TextBox>
                     <TextBlock>Tipo de comida</TextBlock>
                     <ComboBox ItemsSource="{Binding Path=TiposComida}"
                               SelectedItem="{Binding Path=PlatoSeleccionado.Tipo, UpdateSourceTrigger=PropertyChanged}"

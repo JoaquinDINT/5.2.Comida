@@ -46,7 +46,7 @@ namespace Comida
 
         public MainWindowVM()
         {
-            ListaPlatos = Plato.GetSamples("");
+            ListaPlatos = Plato.GetSamples(System.IO.Path.Combine(Environment.CurrentDirectory, "Imagenes"));
             TiposComida = new ObservableCollection<string> { "China", "Americana", "Mexicana" };
         }
 
