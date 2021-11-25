@@ -171,9 +171,11 @@
                 <StackPanel Style="{StaticResource formulario}">
 
                     <TextBlock>Nombre del plato</TextBlock>
-                    <TextBox Text="{Binding Path=PlatoSeleccionado.Nombre, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                    <TextBox Text="{Binding Path=PlatoSeleccionado.Nombre, UpdateSourceTrigger=PropertyChanged}"
+                             Template="{DynamicResource TextBoxControlTemplate1}"></TextBox>
                     <TextBlock>Foto del plato</TextBlock>
-                    <TextBox Text="{Binding Path=PlatoSeleccionado.Imagen, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                    <TextBox Text="{Binding Path=PlatoSeleccionado.Imagen, UpdateSourceTrigger=PropertyChanged}"
+                             Template="{DynamicResource TextBoxControlTemplate1}"></TextBox>
                     <TextBlock>Tipo de comida</TextBlock>
                     <ComboBox ItemsSource="{Binding Path=TiposComida}"
                               SelectedItem="{Binding Path=PlatoSeleccionado.Tipo, UpdateSourceTrigger=PropertyChanged}"
@@ -182,16 +184,22 @@
                     <GroupBox Header="Alérgenos"
                               BorderBrush="Black"
                               BorderThickness="1"
-                              Padding="5,5,5,0">
+                              Padding="5,5,5,0"
+                              Template="{DynamicResource GroupBoxControlTemplate1}">
                         <UniformGrid>
                             <CheckBox IsChecked="{Binding Path=PlatoSeleccionado.Leche}"
-                                      Margin="0,0,0,10">Leche</CheckBox>
-                            <CheckBox IsChecked="{Binding Path=PlatoSeleccionado.Soja}">Soja</CheckBox>
-                            <CheckBox IsChecked="{Binding Path=PlatoSeleccionado.Gluten}">Gluten</CheckBox>
-                            <CheckBox IsChecked="{Binding Path=PlatoSeleccionado.Sulfitos}">Sulfitos</CheckBox>
+                                      Margin="0,0,0,10"
+                                      Template="{DynamicResource CheckBoxControlTemplate1}">Leche</CheckBox>
+                            <CheckBox IsChecked="{Binding Path=PlatoSeleccionado.Soja}"
+                                      Template="{DynamicResource CheckBoxControlTemplate1}">Soja</CheckBox>
+                            <CheckBox IsChecked="{Binding Path=PlatoSeleccionado.Gluten}"
+                                      Template="{DynamicResource CheckBoxControlTemplate1}">Gluten</CheckBox>
+                            <CheckBox IsChecked="{Binding Path=PlatoSeleccionado.Sulfitos}"
+                                      Template="{DynamicResource CheckBoxControlTemplate1}">Sulfitos</CheckBox>
                         </UniformGrid>
                     </GroupBox>
-                    <Button x:Name="LimpiarSeleccionButton" Click="LimpiarSeleccionButton_Click" Margin="0,10,0,0" Background="LightSkyBlue" Width="120" HorizontalAlignment="Left">Limpiar selección</Button>
+                    <Button x:Name="LimpiarSeleccionButton" Click="LimpiarSeleccionButton_Click" Margin="0,10,0,0" Background="LightSkyBlue" Width="120" HorizontalAlignment="Left"
+                            Template="{DynamicResource ButtonControlTemplate1}">Limpiar selección</Button>
                 </StackPanel>
             </Border>
         </Grid>
